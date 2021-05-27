@@ -1,0 +1,41 @@
+{
+  "VarsFile": "C:\\Users\\eknight\\dev\\rearch\\probr-docker\\config.yml",
+  "Verbose": false,
+  "ServicePacks": {
+    "Kubernetes": {
+      "KeepPods": "false",
+      "KubeConfigPath": "C:\\Users\\eknight\\.kube\\config",
+      "KubeContext": "",
+      "AuthorisedContainerImage": "citihubprod.azurecr.io/citihub/probr-probe",
+      "ProbeNamespace": "probr-general-test-ns",
+      "SystemClusterRoles": [
+        "system:",
+        "aks",
+        "cluster-admin",
+        "policy-agent"
+      ],
+      "UnauthorisedContainerImage": "docker.io/citihub/probr-probe",
+      "ProbeImage": "citihub/probr-probe",
+      "ContainerRequiredDropCapabilities": [
+        "NET_RAW"
+      ],
+      "ContainerAllowedAddCapabilities": [
+        ""
+      ],
+      "ApprovedVolumeTypes": [
+        "configmap",
+        "emptydir",
+        "persistentvolumeclaim"
+      ],
+      "UnapprovedHostPort": "22",
+      "SystemNamespace": "kube-system",
+      "DashboardPodNamePrefix": "kubernetes-dashboard",
+      "Azure": {
+        "DefaultNamespaceAIB": "probr-aib",
+        "IdentityNamespace": "kube-system"
+      },
+      "TagInclusions": null,
+      "TagExclusions": null
+    }
+  }
+}

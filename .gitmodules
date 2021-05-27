@@ -1,0 +1,9 @@
+[submodule "probr"]
+	path = probr
+	url = https://github.com/probr/probr.git
+[submodule "kubernetes"]
+	path = kubernetes
+	url = https://github.com/probr/probr-pack-kubernetes.git
+[submodule "aks"]
+	path = aks
+	url = https://github.com/probr/probr-pack-aks.git
