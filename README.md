@@ -12,6 +12,32 @@ mounted.
 
 ## Example Usage
 
+If the image has been pushed to a container registry, users may use this to
+execute probr with no need for installations beyond those necessary for Docker.
+
+Below are quick examples for how you may build and run this image.
+
+### Building the Image
+
+The most basic way to build this image is like this:
+
+```sh
+# tag name may be anything, such as 'probr' or 'eknight/probr:v0.1.0'
+docker build -t <TAG_NAME> .
+```
+
+To override the version number for probr or a service pack,
+build the image like this instead:
+
+```sh
+docker build -t <TAG_NAME> \
+    --build-arg VERSION_PROBR=v0.1.0 \
+    --build-arg VERSION_AKS=v0.1.0 \
+    . # Be sure that the last value in the command is the path to the Dockerfile
+```
+
+### Running the Image
+
 Assuming...
 
   1. `./run` contains a `config.yml` file and an output directory, and
@@ -26,6 +52,3 @@ docker run \
     --mount type=bind,source="$(pwd)"/run,target=/probr/run \
     my-probr-image
 ```
-
-If the image has been pushed to a container registry, users may use this to
-execute probr with no need for installations beyond those necessary for Docker.
