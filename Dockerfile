@@ -20,8 +20,12 @@ RUN make probr VERSION=${VERSION_PROBR} && \
 RUN make kubernetes VERSION=${VERSION_K8S}
 RUN make aks VERSION=${VERSION_AKS}
 
+ENV PROBR_INSTALL_DIR /probr/cmd
+ENV PROBR_WRITE_DIRECTORY /probr/run
+
 # At runtime:
 # Config file and Output directory must be mounted to /probr/run
-# Service packs may optionally be overridden by mounting to /probr/cmd/bin
+# Service packs may be overridden for debugging by mounting to /probr/cmd/bin
+# Entrypoint may be overridden by mounting to /probr/entrypoint.sh
 WORKDIR /probr/run
-ENTRYPOINT ["/probr/cmd/probr"]
+ENTRYPOINT ["/probr/entrypoint.sh"]
