@@ -28,4 +28,4 @@ ENV PROBR_WRITE_DIRECTORY /probr/run
 # Service packs may be overridden for debugging by mounting to /probr/cmd/bin
 # Entrypoint may be overridden by mounting to /probr/entrypoint.sh
 WORKDIR /probr/run
-ENTRYPOINT ["/probr/entrypoint.sh"]
+ENTRYPOINT ["/probr/cmd/probr"]
