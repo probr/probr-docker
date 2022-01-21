@@ -1,6 +1,13 @@
 FROM golang:1.14.4-alpine AS probr-build
 
 RUN apk add --update make git build-base
+RUN apk add --no-cache \
+        python3 \
+        py3-pip \
+    && pip3 install --upgrade pip \
+    && pip3 install \
+        awscli \
+    && rm -rf /var/cache/apk/*
 
 RUN go get -v github.com/markbates/pkger/cmd/pkger
 RUN go get -u golang.org/x/lint/golint
