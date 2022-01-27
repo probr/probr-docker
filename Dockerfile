@@ -21,6 +21,13 @@ COPY . .
 ARG VERSION_PROBR=v0.1.2
 ARG VERSION_K8S=v0.1.1
 ARG VERSION_AKS=v0.1.0
+ARG AWS_ACCESS_KEY_ID=
+ARG AWS_SECRET_ACCESS_KEY=
+
+RUN mkdir ~/.aws && \
+    echo "[default]" >> ~/.aws/credentials && \
+    echo "aws_access_key_id=${AWS_ACCESS_KEY_ID}" >> ~/.aws/credentials && \
+    echo "aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}" >> ~/.aws/credentials
 
 RUN make probr VERSION=${VERSION_PROBR} && \
     mv /probr/cmd/bin/probr /probr/cmd/probr
