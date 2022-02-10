@@ -1,5 +1,6 @@
 FROM golang:1.14.4-alpine AS probr-build
 
+RUN apk update && apk upgrade && apk add --update bash
 RUN apk add --update make git build-base
 RUN apk add --no-cache \
         python3 \
@@ -39,4 +40,4 @@ ENV PROBR_WRITE_DIRECTORY /probr/run
 # Service packs may be overridden for debugging by mounting to /probr/cmd/bin
 # Entrypoint may be overridden by mounting to /probr/entrypoint.sh
 WORKDIR /probr/run
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT [ "/probr/entrypoint.sh" ] 

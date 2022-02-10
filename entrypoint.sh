@@ -1,3 +1,4 @@
+#!/bin/bash
 # If using AWS, credentials are required
 # If not using AWS, this has no effect
 mkdir ~/.aws
