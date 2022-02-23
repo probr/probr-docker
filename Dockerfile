@@ -26,6 +26,7 @@ ARG VERSION_AKS=v0.1.0
 # Env vars may be passed in at runtime
 ENV AWS_ACCESS_KEY_ID=
 ENV AWS_SECRET_ACCESS_KEY=
+ENV AWS_REGION=eu-west-2
 
 RUN make probr VERSION=${VERSION_PROBR} && \
     mv /probr/cmd/bin/probr /probr/cmd/probr
