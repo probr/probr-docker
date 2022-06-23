@@ -19,12 +19,11 @@ RUN mkdir -p cmd/bin && \
 COPY . .
 
 # Args may be overridden at build time
-ARG VERSION_PROBR=v0.1.2
-ARG VERSION_K8S=v0.1.1
+ARG VERSION_PROBR=v0.1.3-rc
+ARG VERSION_K8S=v0.1.2
 ARG VERSION_AKS=v0.1.0
 
-RUN make probr VERSION=${VERSION_PROBR} && \
-    mv /probr/cmd/bin/probr /probr/cmd/probr
+RUN make probr-core VERSION=${VERSION_PROBR} 
 RUN make kubernetes VERSION=${VERSION_K8S}
 RUN make aks VERSION=${VERSION_AKS}
 

@@ -1,6 +1,6 @@
-[submodule "probr"]
-	path = probr
-	url = https://github.com/probr/probr.git
+[submodule "probr-core"]
+	path = probr-core
+	url = https://github.com/probr/probr-core.git
 [submodule "kubernetes"]
 	path = kubernetes
 	url = https://github.com/probr/probr-pack-kubernetes.git

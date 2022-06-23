@@ -1,10 +1,15 @@
-REPO=probr kubernetes aks
+REPO=probr-core kubernetes aks
 
 .PHONY: $(REPO)
 $(REPO):
-	cd $@ && \
-	git stash && git pull origin main && \
-	git fetch --tags && \
-	git checkout $(VERSION) && \
+	cd $@
+	echo "Pulling $@ main branch"
+	git stash
+	git pull origin main
+	echo "Fetching $@ tags"
+	git fetch --tags
+	echo "Checking out $@:$(VERSION)"
+	git checkout $(VERSION)
+	echo "Making $@ binary"
 	make binary && \
 	mv $@ ../cmd/bin
